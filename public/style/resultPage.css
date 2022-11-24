@@ -1,0 +1,38 @@
+#result-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px 0px;
+  background: rgba(245, 245, 245, 0.671);
+  text-align: center;
+}
+
+#result-table td{
+  padding: 2%;
+  color: #0d1e32;
+  border:1px solid #0d1e32;
+}
+
+.result-title{
+  text-align: center;
+}
+
+.result-title h2{
+  font-size: 1em;
+}
+
+.player-choices{
+  text-align: center;
+}
+
+@media only screen and (max-width: 821px) {
+  .result-title{
+    font-size: 1.5em;
+  }
+  #result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0px;
+    background: rgba(245, 245, 245, 0.671);
+    text-align: center;
+  }
+}
