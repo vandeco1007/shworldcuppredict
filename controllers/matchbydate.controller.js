@@ -28,6 +28,8 @@ module.exports = (req,res,next)=>{
               ,['away_score']:response.data.data[i].away_score
               ,['group']:response.data.data[i].group
               ,['local_date']:response.data.data[i].local_date
+              ,['home_flag']:response.data.data[i].home_flag
+              ,['away_flag']:response.data.data[i].away_flag
             }  
           )
         });
