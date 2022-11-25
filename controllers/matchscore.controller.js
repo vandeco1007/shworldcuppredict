@@ -27,7 +27,7 @@ module.exports = {
             let result = {}
             team.forEach((items)=>{
                 num++
-                result['result'+(num+1)] = items.home+" "+body['team'+(num+1)+'score']+" - "+body.team2score+" "+items.away
+                result['result'+(num+1)] = items.home+" "+body['team'+(num+1)+'score']+" - "+['team'+(num+2)+'score']+" "+items.away
             })
             result.playerId = body.playerId,
             console.log(result)
