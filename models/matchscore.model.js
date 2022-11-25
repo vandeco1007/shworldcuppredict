@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const matchSchema = mongoose.Schema({
     playerId:{
         type:String,
-        required: true
+        required: true,
     },
     result1:{
         type:String,
@@ -20,6 +20,9 @@ const matchSchema = mongoose.Schema({
         type:String,
         default:"none"
     },
-},{ timestamps: true })
+    createDate:{
+        type:String
+    }
+})
 
 module.exports = mongoose.model('matchscore',matchSchema)
