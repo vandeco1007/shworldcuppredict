@@ -1,6 +1,5 @@
 const matchscore = require('../models/matchscore.model')
 const match = require('../middlewares/matchbydate.middleware')
-const option = require('../models/option.model')
 module.exports = {
     createRecord: async(req,res,next)=>{
         let {...body} = req.body

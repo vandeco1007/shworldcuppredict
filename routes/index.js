@@ -1,6 +1,6 @@
 const account = require('./account.router')
 const matchscore = require('./matchscore.router')
-const matchbydate = require('./matchbydate.router')
+const matchbydate = require('./matches.router')
 const errorHandle= require("../middlewares/errorHandle")
 const test = require('./test.router')
 module.exports = (app)=>{
