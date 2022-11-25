@@ -37,7 +37,7 @@ router.route('/login')
 
 router.route('/admin/data')
 .get(
-    asyncHandller(authorization),
+    // asyncHandller(authorization),
     getData
 )
 .delete(
