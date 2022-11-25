@@ -5,7 +5,7 @@ const {
 } = require('../controllers/matchbydate.controller')
 
 router.route('/')
-.post(
+.get(
     callMatch
 )
 

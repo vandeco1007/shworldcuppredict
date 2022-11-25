@@ -6,15 +6,19 @@ const matchSchema = mongoose.Schema({
     },
     result1:{
         type:String,
+        default:"none"
     },
     result2:{
         type:String,
+        default:"none"
     },
     result3:{
         type:String,
+        default:"none"
     },
     result4:{
         type:String,
+        default:"none"
     },
 },{ timestamps: true })
 
