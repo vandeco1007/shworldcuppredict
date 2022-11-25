@@ -1,9 +1,7 @@
 var axios = require('axios');
 
 module.exports = (req,res,next)=>{
-    var data = JSON.stringify({
-      "date": "11/24/2022"
-    });
+    var data = JSON.stringify(req.body);
     
     var config = {
       method: 'post',
