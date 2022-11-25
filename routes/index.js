@@ -8,6 +8,12 @@ module.exports = (app)=>{
     app.get('/',(req,res,next)=>{
         res.send('Matchpredict ATT 0.0.1 BETA')
     })
+    app.get('/system/time',(req,res,next)=>{
+        let date = new Date().getTime()
+        res.json({
+            servertime: date
+        }) 
+    })
     app.use('/account', account)
     app.use('/match', matchscore)
     app.use('/matchbydate', matchbydate)
