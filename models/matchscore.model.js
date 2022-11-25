@@ -16,6 +16,6 @@ const matchSchema = mongoose.Schema({
     result4:{
         type:String,
     },
-})
+},{ timestamps: true })
 
 module.exports = mongoose.model('matchscore',matchSchema)
