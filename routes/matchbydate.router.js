@@ -1,10 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const match = require('../controllers/matchbydate.controller')
+const {
+    callMatch
+} = require('../controllers/matchbydate.controller')
 
 router.route('/')
 .post(
-    match
+    callMatch
 )
 
 module.exports = router

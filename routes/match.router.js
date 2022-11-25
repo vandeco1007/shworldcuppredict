@@ -1,16 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const {
-    createRecord,
-    readRecord
-} = require('../controllers/matchscore.controller')
+    getMatch
+} = require('../controllers/matchbydate.controller')
 
 router.route('/')
 .get(
-    readRecord
-)
-.post(
-    createRecord
+    getMatch
 )
 
 module.exports = router

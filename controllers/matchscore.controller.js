@@ -6,13 +6,30 @@ module.exports = {
         let {...body} = req.body
         try {
             matchscore.findOne({ 'playerId': body.playerId })
-            let matchdata = await match()
+            let matchdata = await match(body.date)
+            let i = -1
+            homeTeam = {}
+            let team = []
+            console.log(matchdata[0]['local_time'])
+            matchdata.forEach(items => {
+                i++
+                team.push({['home']: matchdata[i].home_team
+                  ,['away']: matchdata[i].away_team
+                  ,['home_score']:matchdata[i].home_score
+                  ,['away_score']:matchdata[i].away_score
+                  ,['group']:matchdata[i].group
+                  ,['local_date']:matchdata[i].local_date
+                  ,['home_flag']:matchdata[i].home_flag
+                  ,['away_flag']:matchdata[i].away_flag
+                }  
+              )
+            });
             let create = await matchscore.create({
                 playerId: body.playerId,
-                result1: matchdata[0].home+" "+body.team1score+" - "+body.team2score+" "+matchdata[0].away,
-                result2: matchdata[1].home+" "+body.team3score+" - "+body.team4score+" "+matchdata[1].away,
-                result3: matchdata[2].home+" "+body.team5score+" - "+body.team6score+" "+matchdata[2].away,
-                result4: matchdata[3].home+" "+body.team7score+" - "+body.team8score+" "+matchdata[3].away
+                result1: team[0].home+" "+body.team1score+" - "+body.team2score+" "+team[0].away,
+                result2: team[1].home+" "+body.team3score+" - "+body.team4score+" "+team[1].away,
+                result3: team[2].home+" "+body.team5score+" - "+body.team6score+" "+team[2].away,
+                result4: team[3].home+" "+body.team7score+" - "+body.team8score+" "+team[3].away
             })
             res.json(create)
         } catch (error) {
