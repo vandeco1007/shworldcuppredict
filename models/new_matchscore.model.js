@@ -31,4 +31,4 @@ const matchSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('matchscore',matchSchema)
+module.exports = mongoose.model('new_matchscore',matchSchema)
