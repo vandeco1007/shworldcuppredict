@@ -16,7 +16,7 @@ app.set('trust proxy', true)
 app.get("/ip", function (req, res) {
     console.log(req.socket.remoteAddress);
     console.log(req.ip);
-    res.send("your IP is: " + req.ip);
+    res.send(req.ip);
 });
 
 router(app)
