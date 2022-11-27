@@ -11,6 +11,7 @@ app.use(exrpess.static('./public'))
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
+app.set('trust proxy', true)
 
 app.get("/ip", function (req, res) {
     console.log(req.socket.remoteAddress);
