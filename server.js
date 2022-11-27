@@ -2,6 +2,7 @@ const exrpess = require('express')
 const cors = require('cors')
 const app = exrpess()
 const router = require('./routes')
+const Fingerprint = require('express-fingerprint')
 const connectDb = require('./config/database')
 
 app.use(exrpess.json())
@@ -12,6 +13,19 @@ app.use(exrpess.static('./public'))
 app.set('view engine', 'ejs')
 app.set('views', './views')
 app.set('trust proxy', true)
+ 
+app.use(Fingerprint({
+    parameters:[
+        Fingerprint.useragent,
+        Fingerprint.acceptHeaders,
+        Fingerprint.geoip,
+    ]
+}))
+ 
+app.get('/fp',function(req,res,next) {
+    console.log(req.fingerprint)
+    res.json(req.fingerprint.hash)
+})
 
 app.get("/ip", function (req, res) {
     console.log(req.socket.remoteAddress);
