@@ -12,11 +12,11 @@ module.exports = {
         let {...body} = req.body
         let data = path[req.query.path]
         let playerId = body.playerId.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\s\{\}\[\]\\\/]/gi, '')
-        let playerIdlowercase = playerId
         try {
-            let check = await data.findOne({ 'playerId': playerIdlowercase })
+            let check = await data.findOne({ 'playerId': playerId,"createDate": body.date})
             let matchdata = await match(body.date)
             if(check){
+                console.log(check.createDate+""+body.date)
                 if(check.createDate!=body.date){
                     verified(matchdata,data,body,res)
                 }else{
