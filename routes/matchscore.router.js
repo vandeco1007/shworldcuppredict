@@ -3,6 +3,7 @@ const router = express.Router()
 const {
     createRecord,
     readRecord,
+    findPlayer,
     readBydate,
     deleteRecord,
     deleteByDate
@@ -17,6 +18,11 @@ router.route('/')
 )
 .delete(
     deleteRecord
+)
+
+router.route('/findplayer')
+.post(
+    findPlayer
 )
 
 router.route('/getdate')

@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {
     getMatchByDate,
-    getAllMatches
+    getAllMatches,
 } = require('../controllers/matches.controller')
 
 router.route('/')

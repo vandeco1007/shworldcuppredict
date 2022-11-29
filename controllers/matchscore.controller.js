@@ -55,6 +55,24 @@ module.exports = {
             res.render("failure",{result:"Có lỗi trong quá trình truy cập, quý khách vui lòng kiểm tra lại sau ít phút."})
         }
     },
+    findPlayer: async(req,res,next)=>{
+        let data = path[req.query.path]
+        try {
+            let record = await data.find({playerId:req.body.playerId})
+            if(record){
+                res.json(record)
+            }else{
+                res.json({
+                    code:404,
+                    mess:"record not found"
+                })
+            }
+
+        } catch (error) {
+            console.log(error)
+            res.render("failure",{result:"Có lỗi trong quá trình truy cập, quý khách vui lòng kiểm tra lại sau ít phút."})
+        }
+    },
     readBydate: async(req,res,next)=>{
         let data = path[req.query.path]
         try {
