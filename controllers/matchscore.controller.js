@@ -8,14 +8,14 @@ const path = {
     bet789: matchscore_789
 }
 module.exports = {
-    ///SHBET
     createRecord: async(req,res,next)=>{
         let {...body} = req.body
         let data = path[req.query.path]
+        let playerId = body.playerId.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\s\{\}\[\]\\\/]/gi, '')
+        let playerIdlowercase = playerId
         try {
-            let check = await data.findOne({ 'playerId': body.playerId })
+            let check = await data.findOne({ 'playerId': playerIdlowercase })
             let matchdata = await match(body.date)
-            console.log(body.date)
             if(check){
                 if(check.createDate!=body.date){
                     verified(matchdata,data,body,res)
@@ -115,19 +115,17 @@ const verified = async(matchdata,path,body,res)=>{
         }  
       )
     });
-    result.playerId = body.playerId
+    let playerId = body.playerId.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\s\{\}\[\]\\\/]/gi, '')
+    result.playerId = playerId
     result.createDate = body.date
     result.ip = body.ip
     result.fp = body.fp
-
     team.forEach((item)=>{
         n++
         odd+=2
         even+=2
-        console.log(odd+"-"+even)
         result['result'+n] = item.home+" "+body['team'+odd+'score']+" - "+body['team'+even+'score']+" "+item.away
     })
-    console.log(result)    
     let create = await path.create(result)
     res.json(create)
 }
