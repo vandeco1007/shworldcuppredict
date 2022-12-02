@@ -11,11 +11,12 @@ module.exports= async(req, res, next)=>{
     })
   }
   const token= authorization;
-  const decode= jwt.verify(token, "789Bet#1");
+  const decode= jwt.verify(token, "abcdef");
   const account= await accountModel.findById(decode._id); 
   if (!account){
     console.log(req.headers.authorization)
   }
+  console.log(decode)
   req.account= account;
   next();
 }

@@ -1,4 +1,4 @@
-const ErrorResponse= require("../middlewares/errorHandle")
+const ErrorResponse= require("./errorHandle")
 
 module.exports= (roles=[])=>{
   if (typeof roles==='string'){
@@ -11,5 +11,4 @@ module.exports= (roles=[])=>{
     }
     next();
   };
-
 }

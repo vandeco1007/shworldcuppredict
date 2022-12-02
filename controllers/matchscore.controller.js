@@ -1,11 +1,14 @@
 const matchscore = require('../models/matchscore.model')
 const new_matchscore = require('../models/new_matchscore.model')
 const matchscore_789 = require('../models/789_matchscore.model')
+const jun_matchscore = require('../models/jun_matchscore.model')
 const match = require('../middlewares/matchbydate.middleware')
+const jun_matchscoreModel = require('../models/jun_matchscore.model')
 const path = {
     sh: matchscore,
     new: new_matchscore,
-    bet789: matchscore_789
+    bet789: matchscore_789,
+    jun88: jun_matchscore
 }
 module.exports = {
     createRecord: async(req,res,next)=>{
@@ -37,7 +40,7 @@ module.exports = {
         }
     },
     readRecord: async(req,res,next)=>{
-        let data = path[req.query.path]
+        let data = path[req.account.site]
         let {...body} = req.body
         try {
             let record = await data.find()
@@ -56,7 +59,7 @@ module.exports = {
         }
     },
     findPlayer: async(req,res,next)=>{
-        let data = path[req.query.path]
+        let data = path[req.account.site]
         try {
             let record = await data.find({playerId:req.body.playerId})
             if(record){
@@ -74,6 +77,7 @@ module.exports = {
         }
     },
     readBydate: async(req,res,next)=>{
+        console.log(req.account.site)
         let data = path[req.query.path]
         try {
             let record = await data.find({createDate:req.body.date})
@@ -93,7 +97,7 @@ module.exports = {
     },
     deleteRecord: async(req,res,next)=>{
         try {
-            let data = path[req.query.path]
+            let data = path[req.account.site]
             let del = await data.deleteMany({})
             res.json(del)
         } catch (error) {
@@ -102,7 +106,7 @@ module.exports = {
     },
     deleteByDate: async(req,res,next)=>{
         try {
-            let data = path[req.query.path]
+            let data = path[req.account.site]
             console.log(req.query.date)
             let del = await data.deleteMany({createDate:req.query.date})
             res.json(del)

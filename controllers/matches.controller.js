@@ -13,6 +13,15 @@ module.exports = {
     } catch (error) {
       console.log(error)
     }
+  },
+  createMatch: async(req,res,next)=>{
+    let {...body} = req.body
+    try {
+      let create = await matches.create(body)
+      res.json(create)
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
     

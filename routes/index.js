@@ -14,8 +14,8 @@ module.exports = (app)=>{
         }) 
     })
     app.use('/account', account)
-    app.use('/match', matchscore)
-    app.use('/matchbydate', matchbydate)
+    app.use('/matchscore', matchscore)
+    app.use('/matches', matchbydate)
     app.use('/test', test)
     app.use(errorHandle)
 }

@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const auth = require('../middlewares/auth.middleware')
+const asyncHandler = require('../middlewares/async.middleware')
 const {
     createRecord,
     readRecord,
@@ -11,27 +13,32 @@ const {
 
 router.route('/')
 .get(
+    asyncHandler(auth),
     readRecord
 )
 .post(
     createRecord
 )
 .delete(
+    asyncHandler(auth),
     deleteRecord
 )
 
 router.route('/findplayer')
 .post(
+    asyncHandler(auth),
     findPlayer
 )
 
 router.route('/getdate')
 .post(
+    asyncHandler(auth),
     readBydate
 )
 
 router.route('/del_date')
 .delete(
+    asyncHandler(auth),
     deleteByDate
 )
 

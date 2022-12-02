@@ -27,13 +27,13 @@ module.exports = {
         }
         
         let checkPassword = bcryptjs.compareSync(body.password, loginAccount.password)
-
+        console.log(loginAccount._id)
         if(checkPassword){
             let token = jwt.sign({
-                _id: account._id,
-                username:account.username,
-                role:account.role
-            },"789Bet#1",{expiresIn:"1h"})
+                _id: loginAccount._id,
+                username:loginAccount.username,
+                site:loginAccount.site
+            },"abcdef",{expiresIn:"1h"})
             res.status(200).json({
                 statusCode:200,
                 message: "Đăng nhập thành công - Login Successfully",
