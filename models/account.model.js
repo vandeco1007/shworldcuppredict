@@ -9,6 +9,10 @@ const accountSchema = mongoose.Schema({
     role:{
         type:String,
         default:"user"
+    },
+    site:{
+        type:String,
+        default:"bet789"
     }
 })
 
