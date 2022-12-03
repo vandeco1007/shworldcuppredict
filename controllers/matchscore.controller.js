@@ -78,7 +78,8 @@ module.exports = {
     },
     readBydate: async(req,res,next)=>{
         console.log(req.account.site)
-        let data = path[req.query.path]
+        let data = path[req.account.site]
+        console.log(data)
         try {
             let record = await data.find({createDate:req.body.date})
             if(record){

@@ -32,6 +32,7 @@ module.exports = {
             let token = jwt.sign({
                 _id: loginAccount._id,
                 username:loginAccount.username,
+                role:loginAccount.role,
                 site:loginAccount.site
             },"abcdef",{expiresIn:"1h"})
             res.status(200).json({
