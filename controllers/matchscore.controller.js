@@ -40,7 +40,7 @@ module.exports = {
         }
     },
     readRecord: async(req,res,next)=>{
-        let data = path[req.account.site]
+        let data = path[req.query.path]
         let {...body} = req.body
         try {
             let record = await data.find()
@@ -77,8 +77,8 @@ module.exports = {
         }
     },
     readBydate: async(req,res,next)=>{
-        console.log(req.account.site)
-        let data = path[req.account.site]
+        console.log(req.query.path)
+        let data = path[req.query.path]
         console.log(data)
         try {
             let record = await data.find({createDate:req.body.date})
@@ -98,7 +98,7 @@ module.exports = {
     },
     deleteRecord: async(req,res,next)=>{
         try {
-            let data = path[req.account.site]
+            let data = path[req.query.path]
             let del = await data.deleteMany({})
             res.json(del)
         } catch (error) {
@@ -107,7 +107,7 @@ module.exports = {
     },
     deleteByDate: async(req,res,next)=>{
         try {
-            let data = path[req.account.site]
+            let data = path[req.query.path]
             console.log(req.query.date)
             let del = await data.deleteMany({createDate:req.query.date})
             res.json(del)

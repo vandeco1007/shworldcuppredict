@@ -13,14 +13,12 @@ const {
 
 router.route('/')
 .get(
-    asyncHandler(auth),
     readRecord
 )
 .post(
     createRecord
 )
 .delete(
-    asyncHandler(auth),
     deleteRecord
 )
 
@@ -31,13 +29,11 @@ router.route('/findplayer')
 
 router.route('/getdate')
 .post(
-    asyncHandler(auth),
     readBydate
 )
 
 router.route('/del_date')
 .delete(
-    asyncHandler(auth),
     deleteByDate
 )
 
