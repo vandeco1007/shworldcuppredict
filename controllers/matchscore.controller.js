@@ -59,7 +59,7 @@ module.exports = {
         }
     },
     findPlayer: async(req,res,next)=>{
-        let data = path[req.account.site]
+        let data = path[req.query.path]
         try {
             let record = await data.find({playerId:req.body.playerId})
             if(record){
