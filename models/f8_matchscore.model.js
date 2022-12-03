@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const hi_matchscore = mongoose.Schema({
+const f8_matchscore = mongoose.Schema({
     playerId:{
         type:String,
         required: true,
@@ -31,4 +31,4 @@ const hi_matchscore = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('hi_matchscore',hi_matchscore)
+module.exports = mongoose.model('f8_matchscore',f8_matchscore)

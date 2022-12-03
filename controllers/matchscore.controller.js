@@ -2,13 +2,16 @@ const matchscore = require('../models/matchscore.model')
 const new_matchscore = require('../models/new_matchscore.model')
 const matchscore_789 = require('../models/789_matchscore.model')
 const jun_matchscore = require('../models/jun_matchscore.model')
+const hi_matchscore = require('../models/hi_matchscore.model')
+const f8_matchscore = require('../models/f8_matchscore.model')
 const match = require('../middlewares/matchbydate.middleware')
-const jun_matchscoreModel = require('../models/jun_matchscore.model')
 const path = {
     sh: matchscore,
     new: new_matchscore,
     bet789: matchscore_789,
-    jun88: jun_matchscore
+    jun88: jun_matchscore,
+    hi88: hi_matchscore,
+    f8bet: f8_matchscore
 }
 module.exports = {
     createRecord: async(req,res,next)=>{
