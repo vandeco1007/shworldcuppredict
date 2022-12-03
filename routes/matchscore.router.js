@@ -26,7 +26,6 @@ router.route('/')
 
 router.route('/findplayer')
 .post(
-    asyncHandler(auth),
     findPlayer
 )
 
